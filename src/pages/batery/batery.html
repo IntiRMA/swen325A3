@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     Batery
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-content>Status: <b [ngStyle]="{ 'color' : data.color}">{{data.mqttStatus}}</b></ion-card-content>
+  </ion-card>
+
+  <ion-row justify-content-center align-items-center>
+    <button ion-button (click)="data.connect()">Connect</button>
+    <button ion-button (click)="data.disconnect()">Disconnect</button>
+  </ion-row>
+
+  <ion-content padding>
+    <ion-card>
+      <ion-card-title>Battery percentages:</ion-card-title>
+      <ion-card-header>Kitchen:</ion-card-header>
+      <ion-card-content>{{data.status["kitchen"]}}</ion-card-content>
+      <ion-card-header>Bedroom:</ion-card-header>
+      <ion-card-content>{{data.status["bedroom"]}}</ion-card-content>
+      <ion-card-header>Living Room:</ion-card-header>
+      <ion-card-content>{{data.status["living"]}}</ion-card-content>
+      <ion-card-header>Dining Room:</ion-card-header>
+      <ion-card-content>{{data.status["dining"]}}</ion-card-content>
+      <ion-card-header>Toilet:</ion-card-header>
+      <ion-card-content>{{data.status["toilet"]}}</ion-card-content>
+    </ion-card>
+
+    <ion-content padding>
+
+      <ion-label stacked>Message to Send:</ion-label>
+      <button ion-button full (click)="data.sendMessage()">Send Message</button>
+      <ion-card-header>Graph:</ion-card-header>
+      <canvas #barCanvas></canvas>
+
+    </ion-content>
