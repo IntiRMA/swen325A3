@@ -102,7 +102,7 @@ export class DataProvider {
       this.lasttime=tot;
       this.firstroun=false;
     }
-    if((tot-this.lasttime>=5*60)&&(!this.triggered)){
+    if((tot-this.lasttime>=5)&&(!this.triggered)){
       this.evt.publish("alert",0);
       this.triggered=true;
     }
